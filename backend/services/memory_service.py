@@ -96,3 +96,52 @@ class MemoryService:
                 {"_id": 0}
             ).sort("created_at", 1)
         )
+
+    def get_streak(self, user_id: str):
+
+        docs = list(
+            self.memory.find(
+                {
+                    "user_id": user_id,
+                    "created_at": {"$exists": True}
+                },
+                {
+                    "_id": 0,
+                    "created_at": 1
+                }
+            )
+        )
+
+        if not docs:
+            return 0
+
+        active_days = sorted(
+            {
+                doc["created_at"].date()
+                for doc in docs
+            },
+            reverse=True
+        )
+
+        today = datetime.now(
+            ZoneInfo("Asia/Kolkata")
+        ).date()
+
+        latest_day = active_days[0]
+
+        if (today - latest_day).days > 1:
+            return 0
+
+        streak = 1
+
+        for i in range(len(active_days) - 1):
+
+            current_day = active_days[i]
+            previous_day = active_days[i + 1]
+
+            if (current_day - previous_day).days == 1:
+                streak += 1
+            else:
+                break
+
+        return streak

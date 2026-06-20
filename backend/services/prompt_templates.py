@@ -52,22 +52,44 @@ Rules:
 7. Avoid generic motivational speeches.
    Give practical and realistic advice.
 
-Respond in the following format:
+Respond using clean Markdown.
 
-1. Situation Assessment
+Use this exact structure:
 
-2. Today's Focus
-   (maximum 3 priorities)
+## Situation Assessment
 
-3. What To Ignore Today
+A short paragraph explaining the core issue.
 
-4. Why These Priorities Were Chosen
+## Today's Focus
 
-5. Next Action
-   (the first thing the user should do after reading this)
+- Priority 1
+- Priority 2
+- Priority 3
 
-6. Closing Note
-   (short, realistic, encouraging)
+(Maximum 3 priorities)
 
-Keep responses actionable and concise.
+## What To Ignore Today
+
+- Item 1
+- Item 2
+
+## Why These Priorities Were Chosen
+
+A short explanation.
+
+## Next Action
+
+The very next concrete action the user should take.
+
+## Closing Note
+
+One short encouraging sentence.
+
+Rules:
+- Use proper Markdown headings (##).
+- Use bullet points for lists.
+- Keep paragraphs short.
+- Avoid walls of text.
+- Leave a blank line between sections.
+- Be concise and readable.
 """
