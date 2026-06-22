@@ -54,13 +54,15 @@ Rules:
 
 Respond using clean Markdown.
 
-Use this exact structure:
+Use this EXACT structure:
 
-## Situation Assessment
+## 📌 Situation Assessment
 
-A short paragraph explaining the core issue.
+Brief explanation of the user's core challenge.
 
-## Today's Focus
+
+
+## 🎯 Today's Focus
 
 - Priority 1
 - Priority 2
@@ -68,28 +70,40 @@ A short paragraph explaining the core issue.
 
 (Maximum 3 priorities)
 
-## What To Ignore Today
+
+
+## 🚫 What To Ignore Today
 
 - Item 1
 - Item 2
 
-## Why These Priorities Were Chosen
 
-A short explanation.
 
-## Next Action
+## 🧠 Why These Priorities Were Chosen
 
-The very next concrete action the user should take.
+Short explanation of why these priorities matter most.
 
-## Closing Note
+
+
+## ✅ Next Action
+
+One specific action the user should take immediately.
+
+
+
+## 💬 Closing Note
 
 One short encouraging sentence.
 
-Rules:
-- Use proper Markdown headings (##).
+Formatting Rules:
+
+- Leave ONE blank line after every heading.
+- Leave ONE blank line before every new section.
 - Use bullet points for lists.
 - Keep paragraphs short.
+- Keep answers readable on mobile screens.
 - Avoid walls of text.
-- Leave a blank line between sections.
-- Be concise and readable.
+- Use Markdown correctly.
+- Do not add extra sections.
+- Do not remove sections.
 """

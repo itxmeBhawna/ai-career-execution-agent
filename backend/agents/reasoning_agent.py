@@ -71,25 +71,71 @@ milestone
             .lower()
         )
 
-        if memory_type == "goal":
-            self.progress.save_goal(
-                user_id,
-                display_name,
-                user_input
-            )
+        memory_summary_prompt = f"""
+Convert the following user statement into one concise memory.
 
-        elif memory_type == "milestone":
-            self.progress.save_milestone(
-                user_id,
-                display_name,
-                user_input
-            )
+Rules:
+- Maximum one sentence.
+- Keep only the most important information.
+- Remove unnecessary details.
+- Preserve the core goal, progress, or achievement.
+- Return only the memory.
 
-        else:
-            self.progress.save_progress(
-                user_id,
-                display_name,
-                user_input
-            )
+User Statement:
+{user_input}
+"""
+
+        memory_content = (
+            self.gemini.generate(memory_summary_prompt)
+            .strip()
+        )
+
+        emotion_keywords = [
+            "tired",
+            "stress",
+            "stressed",
+            "overwhelmed",
+            "anxious",
+            "anxiety",
+            "burnout",
+            "burned out",
+            "exhausted",
+            "fatigue",
+            "fatigued",
+            "sad",
+            "depressed",
+            "upset",
+            "worried"
+        ]
+
+        lower_input = user_input.lower()
+
+        is_emotion_only = any(
+            keyword in lower_input
+            for keyword in emotion_keywords
+        )
+
+        if not is_emotion_only:
+
+            if memory_type == "goal":
+                self.progress.save_goal(
+                    user_id,
+                    display_name,
+                    memory_content
+                )
+
+            elif memory_type == "milestone":
+                self.progress.save_milestone(
+                    user_id,
+                    display_name,
+                    memory_content
+                )
+
+            else:
+                self.progress.save_progress(
+                    user_id,
+                    display_name,
+                    memory_content
+                )
 
         return response
