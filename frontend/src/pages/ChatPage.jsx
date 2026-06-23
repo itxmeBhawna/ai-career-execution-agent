@@ -26,7 +26,7 @@ export default function ChatPage() {
   const loadDashboard = async () => {
     try {
       const memoryResponse = await fetch(
-        `http://127.0.0.1:8000/memory/${userId}`
+        `https://ai-career-execution-agent.onrender.com/memory/${userId}`
       );
 
       const memoryData = await memoryResponse.json();
@@ -53,7 +53,7 @@ export default function ChatPage() {
       );
 
       const streakResponse = await fetch(
-        `http://127.0.0.1:8000/streak/${userId}`
+        `https://ai-career-execution-agent.onrender.com/streak/${userId}`
       );
 
       const streakData = await streakResponse.json();
@@ -87,7 +87,7 @@ export default function ChatPage() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/coach",
+        "https://ai-career-execution-agent.onrender.com/coach",
         {
           method: "POST",
           headers: {
